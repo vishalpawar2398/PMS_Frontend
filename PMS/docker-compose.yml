@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    expose:
+      - "8000"
+    volumes:
+      - .:/app
+      - static_volume:/app/staticfiles
+    depends_on:
+      - db
+
+  db:
+    image: mysql:latest
+    build: .
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: Productmanagement
+      MYSQL_USER: MYSQL_ROOT_PASSWORD
+      MYSQL_PASSWORD: Vishal@123
+
+  nginx:
+    build: ./nginx
+    ports:
+      - "80:80"
+    volumes:
+      - static_volume:/app/staticfiles
+    depends_on:
+      - web
+
+volumes:
+  static_volume:

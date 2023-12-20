@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+{%load static%}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <link rel="stylesheet" href="{% static 'css/uerform.css' %}">
+
+    <title>Title</title>
+   </head>
+<body>
+<div class="background">
+        <div class="container">
+            <h1>Register Your Dream House</h1>
+            <form method="POST" class="form">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="id_location">Location:</label>
+                    {{ form.location }}
+                </div>
+                <div class="form-group">
+                    <label for="id_Bhk">Bhk:</label>
+                    {{ form.Bhk }}
+                </div>
+                <div class="form-group">
+                    <label for="id_Bhk">bathroom:</label>
+                    {{ form.bathroom }}
+                </div>
+                <div class="form-group">
+                    <label for="id_Bhk">balcony:</label>
+                    {{ form.balcony }}
+                </div>
+                <div class="form-group">
+                    <label for="id_Bhk">playground:</label>
+                    {{ form.playground }}
+                </div>
+                <div class="form-group">
+                    <label for="id_Bhk">landmark:</label>
+                    {{ form.landmark }}
+                </div>
+                <div class="form-group">
+                    <label for="id_Bhk">price_range:</label>
+                    {{ form.price_range }}
+                </div>
+               <div class="button-container">
+                    <input type="submit" value="Send Now" class="submit-button">
+
+                     <a href="/" class="styled-link">Previous Page</a>
+               </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
